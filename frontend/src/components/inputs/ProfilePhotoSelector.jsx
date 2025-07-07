@@ -63,7 +63,7 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
             <LuTrash />
           </button>
         </div>
-      )};
+      )}
     </div>
 )};
 
