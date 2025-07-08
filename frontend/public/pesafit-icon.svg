@@ -1,0 +1,21 @@
+
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(25,10)" fill="#28a745">
+    <!-- Africa Circle -->
+    <circle cx="110" cy="30" r="30" fill="#28a745"/>
+    <path d="M120 40c-5-10-12-8-10-18-5 2-8 1-10-2-3 0-5 1-6 3-3 4-5 6-2 10 2 3 1 5 4 7 4 2 6 5 8 9 3 1 7 0 10-1 2-1 4-3 6-6z" fill="#fff"/>
+    
+    <!-- Phone Body -->
+    <rect x="30" y="40" width="60" height="90" rx="8" fill="#28a745"/>
+    <!-- Screen -->
+    <rect x="38" y="50" width="44" height="70" rx="4" fill="#fff"/>
+    <!-- Dollar Sign -->
+    <text x="60" y="92" font-size="30" fill="#28a745" font-family="Arial" text-anchor="middle">$</text>
+
+    <!-- Tribal Pattern -->
+    <path d="M30 130 A30 30 0 0 0 90 130 Q60 180 30 130 Z" fill="#28a745"/>
+    <path d="M42 135 L48 145 L42 155 Z" fill="#fff"/>
+    <path d="M78 135 L72 145 L78 155 Z" fill="#fff"/>
+    <path d="M60 140 L65 150 L55 150 Z" fill="#fff"/>
+  </g>
+</svg>
