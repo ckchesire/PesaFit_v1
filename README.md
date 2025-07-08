@@ -22,8 +22,8 @@ The tech stack includes:
   $ cd frontend
   $ npm install
  ```
-
-Install TailWindCSS as follows.
+## Run React App
+To start react application use:
 ```
- $ npm install tailwindcss @tailwindcss/vite
+ $ npm run dev
 ```
