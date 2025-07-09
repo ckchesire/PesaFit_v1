@@ -7,20 +7,20 @@ export const UserContext = createContext();
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  // Auto-load user from token on app mount
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      axiosInstance
-        .get(API_PATHS.AUTH.GET_USER_INFO)
-        .then((res) => {
-          setUser(res.data);
-        })
-        .catch(() => {
-          localStorage.clear(); // If token is invalid
-        });
-    }
-  }, []); // run only on first render
+  // // Auto-load user from token on app mount
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   if (token) {
+  //     axiosInstance
+  //       .get(API_PATHS.AUTH.GET_USER_INFO)
+  //       .then((res) => {
+  //         setUser(res.data);
+  //       })
+  //       .catch(() => {
+  //         localStorage.clear(); // If token is invalid
+  //       });
+  //   }
+  // }, []); // run only on first render
 
   // Function to update user data
   const updateUser = (userData) => {
