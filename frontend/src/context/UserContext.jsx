@@ -7,7 +7,6 @@ export const UserContext = createContext();
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-
   // Auto-load user from token on app mount
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -19,9 +18,9 @@ const UserProvider = ({ children }) => {
         })
         .catch(() => {
           localStorage.clear(); // If token is invalid
-        })
+        });
     }
-  })
+  }, []); // run only on first render
 
   // Function to update user data
   const updateUser = (userData) => {
