@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Input from "../inputs/Input";
 import EmojiPickerPopup from '../layouts/EmojiPickerPopup';
 
-const AddIncomeForm = () => {
+const AddIncomeForm = ({onAddIncome}) => {
   const [income, setIncome] = useState({
     source: "",
     amount: "",
