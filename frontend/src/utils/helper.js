@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export const validateEmail = (email) => {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
@@ -35,3 +37,30 @@ export const prepareExpenseBarChartData = (data = []) => {
   }));
   return chartData;
 }
+
+export const prepareIncomeBarChartData = (data = []) => {
+  const sortedData = [...data].sort((a, b) => new Date(a.date) - new Date(b.date));
+  
+  // Group by month and sum amounts
+  const groupedData = sortedData.reduce((acc, item) => {
+    const monthKey = moment(item?.date).format('Do MMM');
+    
+    if (acc[monthKey]) {
+      acc[monthKey].amount += item?.amount;
+      acc[monthKey].sources.push(item?.source);
+    } else {
+      acc[monthKey] = {
+        category: monthKey,
+        amount: item?.amount,
+        sources: [item?.source],
+      };
+    }
+    
+    return acc;
+  }, {});
+  
+  // Convert back to array
+  const chartData = Object.values(groupedData);
+  
+  return chartData;
+};
