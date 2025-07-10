@@ -64,3 +64,38 @@ export const prepareIncomeBarChartData = (data = []) => {
   
   return chartData;
 };
+
+
+export const prepareExpenseLineChartData = (data = []) => {
+  const groupedByDay = data.reduce((acc, curr) => {
+    const dayKey = moment(curr.date).format('YYYY-MM-DD');
+
+    if (!acc[dayKey]) {
+      acc[dayKey] = {
+        date: dayKey,
+        amount: 0,
+        categories: {},
+      };
+    }
+
+    acc[dayKey].amount += Number(curr.amount);
+
+    // Track amount by category
+    if (!acc[dayKey].categories[curr.category]) {
+      acc[dayKey].categories[curr.category] = 0;
+    }
+    acc[dayKey].categories[curr.category] += Number(curr.amount);
+
+    return acc;
+  }, {});
+
+  const chartData = Object.values(groupedByDay).map((entry) => ({
+    dayLabel: moment(entry.date).format('Do MMM'),
+    amount: entry.amount,
+    categories: entry.categories,
+    date: entry.date,
+  }));
+
+  return chartData.sort((a, b) => new Date(a.date) - new Date(b.date));
+};
+

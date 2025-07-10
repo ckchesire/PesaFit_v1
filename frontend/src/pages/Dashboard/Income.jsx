@@ -103,8 +103,7 @@ const Income = () => {
   };
 
   // Handle Downloading Income details
-  const handleDownloadIncomeDetails = async () => {
-  };
+  const handleDownloadIncomeDetails = async () => {};
 
   return (
     <DashboardLayout activeMenu="Income">
