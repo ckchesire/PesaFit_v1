@@ -26,7 +26,25 @@ const CustomBarChart = ({data}) => {
           <p className="text-sm text-gray-600">
             Amount: <span className="text-sm font-medium text-gray-900">${payload[0].payload.amount}</span>
           </p>
-          <p className="text-xs text-gray-500">Source:{payload[0].payload.sources}</p>
+          <p className="text-xs text-gray-500">
+              Sources:
+              <br />
+              {Array.isArray(payload[0].payload.sources)
+                ? payload[0].payload.sources.map((src, idx) => (
+                    <span
+                      key={idx}
+                      className="block ml-2 text-purple-700 text-xs font-medium before:content-['•_']"
+                    >
+                      {src}
+                    </span>
+                  ))
+                : (
+                    <span className="inline-block ml-2 px-2 py-0.5 rounded bg-purple-50 text-purple-700 text-xs font-medium">
+                      {payload[0].payload.sources || 'N/A'}
+                    </span>
+                  )
+              }
+            </p>
         </div>
       );
     }
